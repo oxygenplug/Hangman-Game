@@ -43,7 +43,7 @@ var hangman = {
         startGame: function() {
             this.chooseWord();
             this.createPartialAnswer();
-            console.log(this.chosenWord, this.createPartialAnswer);
+            console.log(this.chosenWord, this.PartialAnswer);
     
         },
 
