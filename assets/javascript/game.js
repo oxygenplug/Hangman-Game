@@ -1,12 +1,6 @@
-/* set up
- - create array holding our words to use in game
- - create array to hold letters guessed
- - create object with wins/losses
 
-
-*/
 var hangman = {
-
+    // initializing all properties
     chosenWord: "",
     poolOfWords: ["map", "pirate", "treasure", "parrot", "ship", "captain", "crew", "mutiny", "sail"],
     gameRunning: false,
@@ -14,7 +8,10 @@ var hangman = {
     losses: 0,
     correctCharacters: [],
     badGuesses: [],
+    livesRemaining: 10,
 
+    //initializing all my methods
+    /* randomly chooses a word from my array of words*/
     chooseWord: function () {
         this.chosenWord = this.poolOfWords[Math.floor(Math.random() * this.poolOfWords.length)];
     },
@@ -28,6 +25,8 @@ var hangman = {
         }
     },
 
+/* logic for guessing letters.*/
+
     guessLetter: function (guessedLetter) {
         var isAlreadyGuessed = this.badGuesses.find((item) => {
             return guessedLetter == true;
@@ -37,7 +36,7 @@ var hangman = {
         var isCorrectGuess = false;
 
         if (!isCorrectGuess) {
-            if (guessedLetter = this.badGuesses.filter(guessedLetter)) {
+/* this line returns an error of "e" is not a function*/            if (guessedLetter = this.badGuesses.filter(guessedLetter)) {
                 return;
             }
             this.badGuesses.push(guessedLetter);
@@ -66,27 +65,37 @@ var hangman = {
         console.log(value);
     },
 
-
+/* starts the game when called*/
 
     startGame: function () {
         this.gameRunning = true,
             this.chooseWord();
         this.createCorrectCharacters();
+        this.madeBadGuess();
+        this.print();
     },
 
 
-    difficultySettings: {
-        difficulty: 15,
+    /* lowers lives remaining every time an incorrect guess is made (this is checked by looking at the  value of the badGuesses array*/
+    madeBadGuess: function () {
 
-        liveRemaining = function (guessMade) {
-            if (guessMade == isCorrectGuess){
-                return;
+        if (this.badGuesses.length < this.livesRemaining) {
+            for (i = 0; i < this.badGuesses.length; i++) {
+                this.livesRemaining = this.livesRemaining - 1;
             }
-            else {
-                this.difficulty = this.difficulty -1;
-            }
-        },
+        }
+
+        else if (this.badGuesses >= this.livesRemaining) {
+            console.log("GAME OVER");
+
+        }
+
+        console.log(this.livesRemaining);
+
+
+
     },
+
 
 
 }
