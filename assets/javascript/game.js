@@ -58,12 +58,9 @@ var hangman = {
 
 console.log("it ran");
 document.onkeyup = function (event) {
-    if (gameRunning = false) {
+    if (!hangman.gameRunning) {
         hangman.startGame();
         return;
     }
-
-    hangman.guessLetter();
-   
-    
+    hangman.guessLetter(event.key);
 }
