@@ -44,9 +44,15 @@ var hangman = {
     },
 
     print: function() {
+        var value = "";
         for (var i = 0; i < this.correctCharacters.length; i++) {
-            var value = "";
-            this.correctCharacters
+            if(!this.correctCharacters[i]){
+                value += "_";
+            }
+            else {
+                value += this.chosenWord[i];
+            }
+            value += " ";
         }
     },
 
@@ -69,5 +75,6 @@ document.onkeyup = function (event) {
         return;
     }
     hangman.guessLetter(event.key);
+    hangman.print();
     console.log(hangman.correctCharacters);
 }
