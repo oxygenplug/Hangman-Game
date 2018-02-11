@@ -43,6 +43,15 @@ var hangman = {
         }
     },
 
+    print: function() {
+        for (var i = 0; i < this.correctCharacters.length; i++) {
+            var value = "";
+            this.correctCharacters
+        }
+    },
+
+
+
     startGame: function () {
         this.gameRunning = true,
         this.chooseWord();
