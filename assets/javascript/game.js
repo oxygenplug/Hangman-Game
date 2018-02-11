@@ -37,9 +37,9 @@ var hangman = {
     },
 
     guessLetter: function (guessedLetter) {
-        for (var i = 0; i < answer.length; i++) {
-            if (guessedLetter == answer.charAt(i)) {
-                hiddenWord[i] = guessedLetter;
+        for (var index = 0; index < this.chosenWord.length; index++) {
+            if (guessedLetter == this.chosenWord.charAt(index)) {
+                this.partialAnswer[index] = guessedLetter;
             }
         }
     },
@@ -63,4 +63,5 @@ document.onkeyup = function (event) {
         return;
     }
     hangman.guessLetter(event.key);
+    console.log(hangman.partialAnswer);
 }
