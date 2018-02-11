@@ -29,42 +29,50 @@ var hangman = {
     },
 
     guessLetter: function (guessedLetter) {
-        var isCorrectGuess = false;
-        for (var index = 0; index < this.chosenWord.length; index++) {
-            if (guessedLetter == this.chosenWord.charAt(index)) {
-                this.correctCharacters[index] = true;
-            }
-        }
+        var isAlreadyGuessed = this.badGuesses.find(item) => {
+    return guessedLetter == true;
+}};
 
-      /*  if (!isCorrectGuess) {
-            if (guessedLetter = this.badGuesses.find(guessedLetter)) {
-                return;
-            }
-            this.badGuesses.push(guessedLetter);
-        } */
+
+var isCorrectGuess = false;
+
+if (!isCorrectGuess) {
+    if (guessedLetter = this.badGuesses.filter(guessedLetter)) {
+        return;
+    }
+    this.badGuesses.push(guessedLetter);
+}
+
+for (var index = 0; index < this.chosenWord.length; index++) {
+    if (guessedLetter == this.chosenWord.charAt(index)) {
+        this.correctCharacters[index] = true;
+    }
+}
+
+
     },
 
-    print: function() {
-        var value = "";
-        for (var i = 0; i < this.correctCharacters.length; i++) {
-            if(!this.correctCharacters[i]){
-                value += "_";
-            }
-            else {
-                value += this.chosenWord[i];
-            }
-            value += " ";
+print: function () {
+    var value = "";
+    for (var i = 0; i < this.correctCharacters.length; i++) {
+        if (!this.correctCharacters[i]) {
+            value += "_";
         }
-        console.log(value);
-    },
+        else {
+            value += this.chosenWord[i];
+        }
+        value += " ";
+    }
+    console.log(value);
+},
 
 
 
-    startGame: function () {
-        this.gameRunning = true,
+startGame: function () {
+    this.gameRunning = true,
         this.chooseWord();
-        this.createCorrectCharacters();
-    },
+    this.createCorrectCharacters();
+},
 
 
 
@@ -81,3 +89,4 @@ document.onkeyup = function (event) {
     hangman.print();
 }
 
+v
