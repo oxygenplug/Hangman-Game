@@ -6,26 +6,25 @@
 
 */
 var hangman = {
-
+    "chosenWord": "",
     poolOfWords: ["map", "pirate", "treasure", "parrot", "ship", "captain", "crew", "mutiny", "sail"],
-    chosenWord: "",
     chooseWord: function () {
-        chosenWord = poolOfWords[Math.floor(Math.random() * poolOfWords.length)];
-        console.log(chosenWord)
+        return this.poolOfWords[Math.floor(Math.random() * this.poolOfWords.length)];
     },
+
 
     makeSpaces: function () {
         var blank = " ";
         for (var i = 0; i < chosenWord.length; i++) {
-            blank += "_ ";
+           blank += "_ ";
 
         }
-        console.log(blank.slice(0, -1));
+        return (blank.slice(0, -1));
     },
-    winLossCounter: {
+
+
         wins: 0,
         losses: 0,
-    },
 
 
     checkGuess: function () {
@@ -34,4 +33,21 @@ var hangman = {
         }
     },
 
+    startGame: function() {
+        this.chooseWord();
+        this.makeSpaces();
+
+    },
+
+    guessLetter: function(guessedLetter){
+        for(var i = 0; i < answer.length; i++){
+            if(guessedLetter == answer.charAt(i)){
+                 hiddenWord[i] = guessedLetter;
+            }
+        }
+        }
+
 }
+
+console.log("it ran");
+document.onkeyup(hangman.startGame());
