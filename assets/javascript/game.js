@@ -29,50 +29,48 @@ var hangman = {
     },
 
     guessLetter: function (guessedLetter) {
-        var isAlreadyGuessed = this.badGuesses.find(item) => {
-    return guessedLetter == true;
-}};
+        var isAlreadyGuessed = this.badGuesses.find((item) => {
+            return guessedLetter == true;
+        });
 
 
-var isCorrectGuess = false;
+        if (!isCorrectGuess) {
+            if (guessedLetter = this.badGuesses.filter(guessedLetter)) {
+                return;
+            }
+            this.badGuesses.push(guessedLetter);
+        }
 
-if (!isCorrectGuess) {
-    if (guessedLetter = this.badGuesses.filter(guessedLetter)) {
-        return;
-    }
-    this.badGuesses.push(guessedLetter);
-}
-
-for (var index = 0; index < this.chosenWord.length; index++) {
-    if (guessedLetter == this.chosenWord.charAt(index)) {
-        this.correctCharacters[index] = true;
-    }
-}
+        for (var index = 0; index < this.chosenWord.length; index++) {
+            if (guessedLetter == this.chosenWord.charAt(index)) {
+                this.correctCharacters[index] = true;
+            }
+        }
 
 
     },
 
-print: function () {
-    var value = "";
-    for (var i = 0; i < this.correctCharacters.length; i++) {
-        if (!this.correctCharacters[i]) {
-            value += "_";
+    print: function () {
+        var value = "";
+        for (var i = 0; i < this.correctCharacters.length; i++) {
+            if (!this.correctCharacters[i]) {
+                value += "_";
+            }
+            else {
+                value += this.chosenWord[i];
+            }
+            value += " ";
         }
-        else {
-            value += this.chosenWord[i];
-        }
-        value += " ";
-    }
-    console.log(value);
-},
+        console.log(value);
+    },
 
 
 
-startGame: function () {
-    this.gameRunning = true,
-        this.chooseWord();
-    this.createCorrectCharacters();
-},
+    startGame: function () {
+        this.gameRunning = true,
+            this.chooseWord();
+        this.createCorrectCharacters();
+    },
 
 
 
