@@ -9,7 +9,7 @@ var hangman = {
     chosenWord: "",
     poolOfWords: ["map", "pirate", "treasure", "parrot", "ship", "captain", "crew", "mutiny", "sail"],
     chooseWord: function () {
-        return this.poolOfWords[Math.floor(Math.random() * this.poolOfWords.length)];
+        this.chosenWord = this.poolOfWords[Math.floor(Math.random() * this.poolOfWords.length)];
     },
 
 
@@ -44,7 +44,6 @@ var hangman = {
             this.chooseWord();
             this.createPartialAnswer();
             console.log(this.chosenWord, this.createPartialAnswer);
-            this.chosenWord = this.chooseWord();
     
         },
 
