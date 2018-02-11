@@ -45,6 +45,7 @@ var hangman = {
     },
 
     startGame: function () {
+        this.gameRunning = true,
         this.chooseWord();
         this.createPartialAnswer();
         console.log(this.chosenWord, this.PartialAnswer);
@@ -57,5 +58,12 @@ var hangman = {
 
 console.log("it ran");
 document.onkeyup = function (event) {
-    hangman.startGame();
+    if (gameRunning = false) {
+        hangman.startGame();
+        return;
+    }
+
+    hangman.guessLetter();
+   
+    
 }
