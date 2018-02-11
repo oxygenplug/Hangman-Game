@@ -47,8 +47,6 @@ var hangman = {
         this.gameRunning = true,
         this.chooseWord();
         this.createCorrectCharacters();
-        console.log(this.chosenWord, this.PartialAnswer);
-
     },
 
 
