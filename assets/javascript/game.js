@@ -54,6 +54,7 @@ var hangman = {
             }
             value += " ";
         }
+        console.log(value);
     },
 
 
@@ -72,9 +73,9 @@ console.log("it ran");
 document.onkeyup = function (event) {
     if (!hangman.gameRunning) {
         hangman.startGame();
+        console.log(hangman.chosenWord);
         return;
     }
     hangman.guessLetter(event.key);
     hangman.print();
-    console.log(hangman.correctCharacters);
 }
