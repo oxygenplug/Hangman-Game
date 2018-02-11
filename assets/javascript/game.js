@@ -51,4 +51,6 @@ var hangman = {
 }
 
 console.log("it ran");
-document.onkeyup(hangman.startGame());
+document.onkeyup = function(event){
+    hangman.startGame();
+}
