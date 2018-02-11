@@ -13,19 +13,12 @@ var hangman = {
     wins: 0,
     losses: 0,
     correctCharacters: [],
+    badGuesses: [],
 
     chooseWord: function () {
         this.chosenWord = this.poolOfWords[Math.floor(Math.random() * this.poolOfWords.length)];
     },
 
-
-
-
-    checkGuess: function () {
-        if (event.key === this.chosenWord.includes()) {
-
-        }
-    },
 
 
 
@@ -36,11 +29,19 @@ var hangman = {
     },
 
     guessLetter: function (guessedLetter) {
+        var isCorrectGuess = false;
         for (var index = 0; index < this.chosenWord.length; index++) {
             if (guessedLetter == this.chosenWord.charAt(index)) {
                 this.correctCharacters[index] = true;
             }
         }
+
+      /*  if (!isCorrectGuess) {
+            if (guessedLetter = this.badGuesses.find(guessedLetter)) {
+                return;
+            }
+            this.badGuesses.push(guessedLetter);
+        } */
     },
 
     print: function() {
@@ -79,3 +80,4 @@ document.onkeyup = function (event) {
     hangman.guessLetter(event.key);
     hangman.print();
 }
+
