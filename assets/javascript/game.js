@@ -27,13 +27,13 @@ var hangman = {
 
     /* logic for guessing letters.*/
     guessLetter: function (guessedLetter) {
-        if (this.isAlreadyGuessed(guessedLetter)) {
+        if (this.isAlreadyGuessed(letter)) {
             return;
         }
-        if (this.isCorrectGuess(guessedLetter)) {
+        if (this.isCorrectGuess(letter)) {
             return;
         }
-        this.badGuesses.push(guessedLetter);
+        this.badGuesses.push(letter);
         this.madeBadGuess();
     },
 
@@ -46,7 +46,7 @@ var hangman = {
     isCorrectGuess: function (letter) {
         var isCorrectGuess = false;
         for (var index = 0; index < this.chosenWord.length; index++) {
-            if (guessedLetter == this.chosenWord.charAt(index)) {
+            if (letter == this.chosenWord.charAt(index)) {
                 isCorrectGuess = true;
                 this.correctCharacters[index] = true;
             }
@@ -65,7 +65,7 @@ var hangman = {
             }
             value += " ";
         }
-        this.wordBeingGuessedElement(value);
+        this.wordBeingGuessedElement.innerText=value;
     },
 
     /* starts the game when called*/
