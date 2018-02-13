@@ -16,9 +16,6 @@ var hangman = {
         this.chosenWord = this.poolOfWords[Math.floor(Math.random() * this.poolOfWords.length)];
     },
 
-
-
-
     createCorrectCharacters: function () {
         for (var i = 0; i < this.chosenWord.length; i++) {
             this.correctCharacters.push(false);
@@ -38,14 +35,14 @@ var hangman = {
 
     isAlreadyGuessed: function(letter) {
         return this.badGuesses.find((item) => {
-            return guessedLetter == item;
+            return letter == item;
         });
     },
 
     isCorrectGuess: function (letter){
         var isCorrectGuess = false;
         for (var index = 0; index < this.chosenWord.length; index++) {
-            if (guessedLetter == this.chosenWord.charAt(index)) {
+            if (letter == this.chosenWord.charAt(index)) {
                 isCorrectGuess = true;
                 this.correctCharacters[index] = true;
             }
@@ -93,13 +90,7 @@ var hangman = {
         }
 
         console.log(this.livesRemaining);
-
-
-
     },
-
-
-
 }
 
 console.log("it ran");
