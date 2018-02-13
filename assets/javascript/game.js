@@ -10,6 +10,7 @@ var hangman = {
     badGuesses: [],
     livesRemaining: 10,
     wordBeingGuessedElement: document.getElementById('wordBeingGuessed'),
+    badGuessesElement: document.getElementById('badGuessList'),
     //initializing all my methods
     /* randomly chooses a word from my array of words*/
     chooseWord: function () {
@@ -39,7 +40,7 @@ var hangman = {
 
     isAlreadyGuessed: function (letter) {
         return this.badGuesses.find((item) => {
-            return guessedLetter == item;
+            return letter == item;
         });
     },
 
@@ -66,6 +67,13 @@ var hangman = {
             value += " ";
         }
         this.wordBeingGuessedElement.innerText=value;
+    },
+
+    printBadGuess: function () {
+        for (i = 0; i < this.badGuesses.length; i++) {
+            this.badGuessList.innerText=this.badGuesses;
+        }
+
     },
 
     /* starts the game when called*/
