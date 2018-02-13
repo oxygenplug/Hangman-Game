@@ -9,7 +9,7 @@ var hangman = {
     correctCharacters: [],
     badGuesses: [],
     livesRemaining: 10,
-
+    wordBeingGuessedElement: document.getElementById('wordBeingGuessed'),
     //initializing all my methods
     /* randomly chooses a word from my array of words*/
     chooseWord: function () {
@@ -65,7 +65,7 @@ var hangman = {
             }
             value += " ";
         }
-        console.log(value);
+        this.wordBeingGuessedElement(value);
     },
 
     /* starts the game when called*/
