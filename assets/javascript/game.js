@@ -19,8 +19,6 @@ var hangman = {
     },
 
 
-
-
     createCorrectCharacters: function () {
         for (var i = 0; i < this.chosenWord.length; i++) {
             this.correctCharacters.push(false);
