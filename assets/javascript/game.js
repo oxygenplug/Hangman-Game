@@ -26,7 +26,7 @@ var hangman = {
     },
 
     /* logic for guessing letters.*/
-    guessLetter: function (guessedLetter) {
+    guessLetter: function (letter) {
         if (this.isAlreadyGuessed(letter)) {
             return;
         }
