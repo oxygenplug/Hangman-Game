@@ -6,4 +6,11 @@ body {
       padding-top: 56px;
     }
   }
-</style>
+
+.hideGameOver {
+  opacity: 0;
+}
+
+.displayGameOver {
+  opacity: 1;
+}

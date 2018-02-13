@@ -54,10 +54,28 @@
                 <div class="col-md-2">
                     <p id="wordBeingGuessed"></p>
                 </div>
-                <div class="col-md-2 row"><p id="badGuessList">Bad Guesses</p></div>
+                <div class="col-md-2 row">
+                    <div class="col-md-12">
+                        <p>Bad Guesses</p>
+                        <p id="badGuessList"></p>
+                   
+                    </div>
+
+                    <div class="col-md-2">
+                        <p>Chances Remaining</p>
+                        <p id="showLivesLeft"></p>
+                    </div>
+
+                   
+                        
+
+                </div>
             </div>
         </div>
-        <div class="jumbotron"><p class="text-center font-weight-bold" id="gameOver">GAME OVER</p></div>
+    </div>
+    <div class="container jumbotron bg-danger" id="toggleGameOver">
+        <button type="button" class="btn btn-danger btn-lg btn-block">GAME OVER</button>
+    </div>
     </div>
     <script type="text/javascript" src="./assets/javascript/game.js"></script>
 </body>
