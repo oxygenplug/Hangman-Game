@@ -25,30 +25,32 @@ var hangman = {
         }
     },
 
-/* logic for guessing letters.*/
-
+    /* logic for guessing letters.*/
     guessLetter: function (guessedLetter) {
-        var isAlreadyGuessed = this.badGuesses.find((item) => {
-            return guessedLetter == true;
-        });
-
-
-        var isCorrectGuess = false;
-
-        if (!isCorrectGuess) {
-/* this line returns an error of "e" is not a function*/            if (guessedLetter = this.badGuesses.filter(guessedLetter)) {
-                return;
-            }
-            this.badGuesses.push(guessedLetter);
+        if(this.isAlreadyGuessed(guessedLetter)){
+            return;
         }
+        if(this.isCorrectGuess(guessedLetter)){
+            return;
+        }
+        this.badGuesses.push(guessedLetter);
+    },
 
+    isAlreadyGuessed: function(letter) {
+        return this.badGuesses.find((item) => {
+            return guessedLetter == item;
+        });
+    },
+
+    isCorrectGuess: function (letter){
+        var isCorrectGuess = false;
         for (var index = 0; index < this.chosenWord.length; index++) {
             if (guessedLetter == this.chosenWord.charAt(index)) {
+                isCorrectGuess = true;
                 this.correctCharacters[index] = true;
             }
         }
-
-
+        return isCorrectGuess;
     },
 
     print: function () {
@@ -65,7 +67,7 @@ var hangman = {
         console.log(value);
     },
 
-/* starts the game when called*/
+    /* starts the game when called*/
 
     startGame: function () {
         this.gameRunning = true,
