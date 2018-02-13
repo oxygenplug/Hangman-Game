@@ -110,7 +110,7 @@ var hangman = {
     //ends the game
     endGame: function () {
 
-        alert('Click "Game Over" to try again!');
+        alert('You lost!');
         this.gameRunning = false;
         document.getElementById('toggleGameOver').classList.add('displayGameOver');
 
