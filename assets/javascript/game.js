@@ -86,6 +86,7 @@ var hangman = {
             this.chooseWord();
         this.createCorrectCharacters();
         this.print();
+        this.winGame();
     },
 
 
@@ -96,7 +97,7 @@ var hangman = {
         this.livesRemaining--;
 
 
-        
+
         this.printBadGuess();
         console.log(this.livesRemaining);
 
@@ -106,15 +107,24 @@ var hangman = {
         }
 
     },
-
+    //ends the game
     endGame: function () {
-        
-            alert('Click "Game Over" to try again!');
-            this.gameRunning = false;
-            document.getElementById('toggleGameOver').classList.add('displayGameOver');
-        
-    },
 
+        alert('Click "Game Over" to try again!');
+        this.gameRunning = false;
+        document.getElementById('toggleGameOver').classList.add('displayGameOver');
+
+    },
+    // when the number of correct characters matches the amount of characters in the chosen word, the user wins. currently not working :(
+    /*
+    winGame: function () {
+        if (this.chosenWord.length > 2) {
+            if (this.chosenWord.length == this.correctCharacters.length){
+                alert('Congrats! You won!');
+            }
+           
+        }
+    }, */
 
 };
 
