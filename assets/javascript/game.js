@@ -16,6 +16,9 @@ var hangman = {
         this.chosenWord = this.poolOfWords[Math.floor(Math.random() * this.poolOfWords.length)];
     },
 
+
+
+
     createCorrectCharacters: function () {
         for (var i = 0; i < this.chosenWord.length; i++) {
             this.correctCharacters.push(false);
@@ -24,25 +27,26 @@ var hangman = {
 
     /* logic for guessing letters.*/
     guessLetter: function (guessedLetter) {
-        if(this.isAlreadyGuessed(guessedLetter)){
+        if (this.isAlreadyGuessed(guessedLetter)) {
             return;
         }
-        if(this.isCorrectGuess(guessedLetter)){
+        if (this.isCorrectGuess(guessedLetter)) {
             return;
         }
         this.badGuesses.push(guessedLetter);
+        this.madeBadGuess();
     },
 
-    isAlreadyGuessed: function(letter) {
+    isAlreadyGuessed: function (letter) {
         return this.badGuesses.find((item) => {
-            return letter == item;
+            return guessedLetter == item;
         });
     },
 
-    isCorrectGuess: function (letter){
+    isCorrectGuess: function (letter) {
         var isCorrectGuess = false;
         for (var index = 0; index < this.chosenWord.length; index++) {
-            if (letter == this.chosenWord.charAt(index)) {
+            if (guessedLetter == this.chosenWord.charAt(index)) {
                 isCorrectGuess = true;
                 this.correctCharacters[index] = true;
             }
@@ -71,7 +75,7 @@ var hangman = {
             this.chooseWord();
         this.createCorrectCharacters();
         this.madeBadGuess();
-        this.print();
+        this.print();;
     },
 
 
@@ -90,7 +94,13 @@ var hangman = {
         }
 
         console.log(this.livesRemaining);
+
+
+
     },
+
+
+
 }
 
 console.log("it ran");
