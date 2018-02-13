@@ -71,7 +71,7 @@ var hangman = {
 
     printBadGuess: function () {
         for (i = 0; i < this.badGuesses.length; i++) {
-            this.badGuessList.innerText=this.badGuesses;
+            this.badGuessesElement.innerText=this.badGuesses;
         }
 
     },
