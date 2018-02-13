@@ -34,7 +34,7 @@ var hangman = {
         if (this.isCorrectGuess(letter)) {
             return;
         }
-        this.badGuesses.push(letter);
+        
         this.madeBadGuess();
     },
 
@@ -80,27 +80,24 @@ var hangman = {
 
     startGame: function () {
         this.gameRunning = true,
-            this.chooseWord();
+        this.chooseWord();
         this.createCorrectCharacters();
-        this.madeBadGuess();
         this.print();;
     },
 
 
     /* lowers lives remaining every time an incorrect guess is made (this is checked by looking at the  value of the badGuesses array*/
-    madeBadGuess: function () {
+    madeBadGuess: function (letter) {
+        this.badGuesses.push(letter);
 
-        if (this.badGuesses.length < this.livesRemaining) {
-            for (i = 0; i < this.badGuesses.length; i++) {
-                this.livesRemaining = this.livesRemaining - 1;
-            }
-        }
+        this.livesRemaining--;
+           
 
-        else if (this.badGuesses >= this.livesRemaining) {
+        if (this.livesRemaining == 0) {
             console.log("GAME OVER");
 
         }
-
+        this.printBadGuess();
         console.log(this.livesRemaining);
 
 
